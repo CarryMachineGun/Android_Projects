@@ -13,31 +13,24 @@ import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var myName: MyName = MyName("Yuchen Wang")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-//        findViewById<Button>(R.id.done_button).setOnClickListener{
-//            addNickname(it)
-//        }
+        binding.myName = myName
+
         binding.doneButton.setOnClickListener{
             addNickname(it)
         }
     }
 
     private fun addNickname(view: View){
-//        val editText : EditText = findViewById(R.id.nickname_edit)
-//        val nicknameTextView = findViewById<TextView>(R.id.nickname_text)
-
-//        binding.nicknameText.text = binding.nicknameText.text
-//        binding.nicknameEdit.visibility = View.GONE
-//        binding.doneButton.visibility = View.GONE
-//        binding.nicknameText.visibility = View.VISIBLE
 
         binding.apply {
-            nicknameText.text = nicknameEdit.text
+//            nicknameText.text = nicknameEdit.text
+            myName?.nickname = nicknameEdit.text.toString()
             invalidateAll()
             nicknameEdit.visibility = View.GONE
             doneButton.visibility = View.GONE
