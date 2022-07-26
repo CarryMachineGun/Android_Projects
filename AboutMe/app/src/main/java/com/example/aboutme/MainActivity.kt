@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.myName = myName
+        binding.myName1 = myName
 
         binding.doneButton.setOnClickListener{
             addNickname(it)
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 //            nicknameText.text = nicknameEdit.text
-            myName?.nickname = nicknameEdit.text.toString()
+            myName1?.nickname = nicknameEdit.text.toString()
             invalidateAll()
             nicknameEdit.visibility = View.GONE
             doneButton.visibility = View.GONE
